@@ -2,10 +2,11 @@
 
 namespace Codemonster\Razor;
 
-use Codemonster\View\Locator\LocatorInterface;
 use Codemonster\View\EngineInterface;
+use Codemonster\View\Locator\LocatorInterface;
+use Codemonster\View\Contracts\SupportsInspectionInterface;
 
-class RazorEngine implements EngineInterface
+class RazorEngine implements EngineInterface, SupportsInspectionInterface
 {
     protected LocatorInterface $locator;
     protected Compiler $compiler;
@@ -30,5 +31,15 @@ class RazorEngine implements EngineInterface
         include $compiled;
 
         return ob_get_clean();
+    }
+
+    public function getLocator(): LocatorInterface
+    {
+        return $this->locator;
+    }
+
+    public function getExtensions(): array
+    {
+        return (array) $this->extensions;
     }
 }

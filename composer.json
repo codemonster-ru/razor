@@ -45,5 +45,10 @@
     "support": {
         "issues": "https://github.com/codemonster-ru/razor/issues",
         "source": "https://github.com/codemonster-ru/razor"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "999.x-dev"
+        }
     }
 }
